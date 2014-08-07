@@ -23,9 +23,8 @@ void third_tree(int inU[7], int inV[7], int inS[7], int inZ[7],
   int late_index[7] = {0}; //zero case variables
   getLateIndices(late_index, inZ, 96);
   int matU[7][4] = {0}, matV[7][4] = {0};
-  
   solution *UT = malloc(sizeof(solution)), *VT = malloc(sizeof(solution));
-  
+  init_level(UT);
   for (i[0] = 0; i[0] < 5; i[0]++)
   {//open loop 0
     tree3(0, i[0], matV, matU, rge, E, pivots, inZ,inU, inS, inV, u, v, s, t);

@@ -14,6 +14,20 @@ typedef struct level {
 } solution;
 
 
+void init_level (solution *input)
+{
+  int i, j, k;
+  for (i = 0; i < 4; i++) {
+    for (j = 0; j < 128; j++) {
+      input->spread[i][j] = 0;
+      for (k = 0; k < 128; k++) {
+        input->parity[i][j][k] = 0;
+      }
+    }
+  }
+}
+
+
 int get_spread_parity(int in[7], unsigned int out[2])
 {
   int i, j;
