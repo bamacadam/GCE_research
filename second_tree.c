@@ -37,7 +37,7 @@ int second_tree(int inU[7], int inS[7], int inZ[7], struct node **head,
         for (i[3] = 0; i[3] < 5; i[3]++)
         {//open loop 3
           tree2(3, i[3], matrix, inZ, outZ, inU, inS, u, s, v);
-          for (i[4] = 0; i[4] < late_index[4]; i[4]++)
+	  for (i[4] = 0; i[4] < late_index[4]; i[4]++)
           {//open loop 3
             tree2(4, i[4], matrix, inZ, outZ, inU, inS, u, s, v);
             for (i[5] = getLowerIndex(i[4], inZ, 1);
