@@ -25,6 +25,7 @@ int second_tree(int inU[7], int inS[7], int inZ[7], struct node **head,
   int matrix[7][4];
   solution *VS = malloc(sizeof(solution));
   int branches = 0;
+  int vc = 0, l2c = 0, pc = 0;
   for (i[0] = 0; i[0] < 5; i[0]++)
   {//open loop 0
     tree2(0, i[0], matrix, inZ, outZ, inU, inS, u, s, v);
@@ -37,7 +38,7 @@ int second_tree(int inU[7], int inS[7], int inZ[7], struct node **head,
         for (i[3] = 0; i[3] < 5; i[3]++)
         {//open loop 3
           tree2(3, i[3], matrix, inZ, outZ, inU, inS, u, s, v);
-	  for (i[4] = 0; i[4] < late_index[4]; i[4]++)
+          for (i[4] = 0; i[4] < late_index[4]; i[4]++)
           {//open loop 3
             tree2(4, i[4], matrix, inZ, outZ, inU, inS, u, s, v);
             for (i[5] = getLowerIndex(i[4], inZ, 1);
@@ -48,11 +49,15 @@ int second_tree(int inU[7], int inS[7], int inZ[7], struct node **head,
                    i[6] < late_index[6]; i[6]++)
               {//open loop 3
                 tree2(6, i[6], matrix, inZ, outZ, inU, inS, u, s, v);
-                if (vCheck(v) && levelTWOcheck(matrix))
-                {
-                  if (prunecheck(US, VS, matrix, 1)) {
-                    branches++;
-                    third_tree(u, v, s, outZ, VS, US, head);
+                vc = vCheck(v);
+                if (vc == 1) {
+                  l2c = levelTWOcheck(matrix);
+                  if (l2c) {
+                    pc = prunecheck(US, VS, matrix, 1);
+                    if (pc) {
+                      branches++;
+                      third_tree(u, v, s, outZ, VS, US, head);
+                    }
                   }
                 }
               }//close loop 6

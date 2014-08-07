@@ -38,6 +38,13 @@ void fill_solutions(int flag[4][30][7], solution *US, int len[4])
 {
   unsigned int sp[2];
   int i, j;
+  //first, initialize all entries to 0
+  for (i = 0; i < 128; i++) {
+    US->spread[i] = 0;
+    for (j = 0; j < 128; j++) {
+      US->parity[i][j] = 0;
+    }
+  }
   for (i = 0; i < 4; i++) {
     for (j = 0; j < len[i]; j++) {
       if(get_spread_parity(flag[i][j], sp)){

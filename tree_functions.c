@@ -60,14 +60,7 @@ void tree2(int k, int i, int matrix[7][4], int inZero[7], int outZero[7],
     outS[k] = inS[k];
   }
     //check for zero case
-  if (k > 3 && k < 7) {
-    if (i == 16) {
-      outZero[k - 4] = 1;
-    }
-    else {
-      outZero[k - 4] = 0;
-    }
-  }
+  outZero[k] = (i == 16);
   tensor(matrix[k], outV[k], outS[k]);  //fill raw matrix
 }
 
@@ -104,7 +97,7 @@ void tree3(int k, int i, int VT[7][4], int UT[7][4], int rge[7][4],
     {4,2,0}, {4,2,1}, {4,2,2}, {4,2,3}, {4,3,0}, {4,3,1}, {4,3,2}, {4,3,3}
   };
   
-  if ((k > 3) && (inZero[k - 4])) {
+  if (inZero[k] ==  1) {
     outU[k] = alt[i][0];
     outV[k] = alt[i][1];
     outS[k] = 4;
@@ -124,9 +117,9 @@ void tree3(int k, int i, int VT[7][4], int UT[7][4], int rge[7][4],
 
 
 int vCheck(int v[7]){
-  int i,j;
+  int i = 0, j = 0;
   for (i = 0, j = 0; i < 7; i++) {
-    if (v[7]==4) {
+    if (v[i] == 4) {
       j++;
     }
   }

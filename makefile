@@ -1,13 +1,13 @@
 CC = clang	 
-CFLAGS  = -c -Wall   
+CFLAGS  = -c -Ofast -Wall -pthread   
 objects = main.o first_tree.o second_tree.o third_tree.o solution_level.o \
         final_prune.o running_gaussian_elimination.o solution_check_functions.o \
         solution_check.o linalg_row_operations.o brute_force_check.o \
         tree_functions.o output_linked_list.o
 tree : $(objects)
-	$(CC) -o tree $(objects)
-main.o : main.c   
-	$(CC) $(CFLAGS)  main.c
+	$(CC) -pthread -o tree $(objects)
+main.o : main.c first_tree.h  
+	$(CC) $(CFLAGS) main.c
 first_tree.o : first_tree.c tree_functions.h solution_level.h \
                output_linked_list.h brute_force_check.h second_tree.h
 	$(CC) $(CFLAGS) first_tree.c

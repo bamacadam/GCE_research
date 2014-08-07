@@ -15,12 +15,15 @@ int prunecheck(solution *prev, solution *curr, int matrix[7][4], int zero)
 {
   int i, j, k;
   int comp;
+  if (zero == 1) {
+    comp = 4;
+  }
+  else {
+    comp = 0;
+  }
   for (i = 0; i < 4; i++)
   {
-    if (zero == 1) {
-      comp = 4;
-    }
-    else {
+    if (comp < 4) {
       comp = i;
     }
     for (j = 0,  k = 0; j < 128; j++) {
