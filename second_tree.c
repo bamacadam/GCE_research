@@ -24,6 +24,7 @@ int second_tree(int inU[7], int inS[7], int inZ[7], struct node **head,
   getLateIndices(late_index, inZ, 17);
   int matrix[7][4];
   solution *VS = malloc(sizeof(solution));
+  init_level(VS);
   int branches = 0;
   int vc = 0, l2c = 0, pc = 0;
   for (i[0] = 0; i[0] < 5; i[0]++)

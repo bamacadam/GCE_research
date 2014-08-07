@@ -24,7 +24,7 @@ void first_tree(int n)
   int flag[4][30][7] = {0}, len[4] = {0};   //the raw solutions
   solution *US = malloc(sizeof(solution));  //the solution struct
   struct node *head = NULL;
-  
+  init_level(US);
   initResults(n);
   static int second_index[3] = {0, 4, 12};
   int branch[2] = {0};

@@ -1,5 +1,5 @@
 CC = clang	 
-CFLAGS  = -c -Ofast -Wall -pthread   
+CFLAGS  = -c -O3 -Wall -pthread   
 objects = main.o first_tree.o second_tree.o third_tree.o solution_level.o \
         final_prune.o running_gaussian_elimination.o solution_check_functions.o \
         solution_check.o linalg_row_operations.o brute_force_check.o \
