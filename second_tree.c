@@ -14,6 +14,17 @@
 #include "solution_check.h"
 #include "third_tree.h"
 
+int icheck2(int i[7]) {
+  if (
+    i[0] == 4 && i[1] == 3 && i[2] == 3 && i[3] == 4 && i[4] == 13 && i[5] == 16 
+    )
+  {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
 
 int second_tree(int inU[7], int inS[7], int inZ[7], struct node **head,
                 solution *US)
@@ -51,13 +62,17 @@ int second_tree(int inU[7], int inS[7], int inZ[7], struct node **head,
               {//open loop 3
                 tree2(6, i[6], matrix, inZ, outZ, inU, inS, u, s, v);
                 vc = vCheck(v);
+                if (icheck2(i) == 1)
+                {
+                  printf("Yes\n");
+                }
                 if (vc == 1) {
                   l2c = levelTWOcheck(matrix);
                   if (l2c) {
                     pc = prunecheck(US, VS, matrix, 1);
                     if (pc) {
                       branches++;
-                      third_tree(u, v, s, outZ, VS, US, head);
+                      //third_tree(u, v, s, outZ, VS, US, head);
                     }
                   }
                 }

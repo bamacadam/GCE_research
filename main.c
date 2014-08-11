@@ -34,13 +34,13 @@ int main ( int argc, char* argv[] )
   
     //now we run the threads
   
-  for (i = 0; i < 64; i++) {
+  for (i = 0; i < 2; i++) {
     input[i] = i;
        pthread_attr_init(&attribute);
        pthread_create(&thread[i], &attribute, dispatch, &input[i]);
   }
     //wait for threads to finish running
-  for (i = 0; i < 64; i++) {
+  for (i = 0; i < 2; i++) {
       pthread_join(thread[i], NULL);
   }
   return 0;

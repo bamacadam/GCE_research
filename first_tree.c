@@ -14,6 +14,22 @@
 #include "brute_force_check.h"
 #include "second_tree.h"
 
+
+int icheck(int i[7]) {
+  if(i[0] == 0 &&
+     i[1] == 12 &&
+     i[2] == 13 &&
+     i[3] == 14 &&
+     i[4] == 16) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+
+
 void first_tree(int n)
 {
   int i[7] = {0}; //the index
@@ -53,14 +69,19 @@ void first_tree(int n)
                 {
                   if (brute_force(matrix, flag, len))
                   {
-                    branch[1] = branch[0] % 64;
+                    branch[1] = branch[0] % 2;
+                    if (icheck(i))
+                    {
+                      printf("\n %i \n", branch[0]);
+                      second_tree(u, s, Z, &head, US);
+                    }
                     if (branch[1] == n)
                     {
                         //initUS(US);
                         //printf("%i", branch);
                       fill_solutions(flag, US, len);
-                      second_tree(u, s, Z, &head, US);
-                      printf("branch: %i,\t thread: %i \n", branch[0], branch[1]);
+                      //second_tree(u, s, Z, &head, US);
+                      //printf("branch: %i,\t thread: %i \n", branch[0], branch[1]);
                     }
                     branch[0]++;
                   }
