@@ -137,7 +137,7 @@ void getLateIndices(int lateArr[7], int inZ[7], int number){
     }
   }
 }
-int getLowerIndex(int index, int flag[3], int entry)
+int getLowerIndex(int index, int flag[7], int entry)
 {
   if(flag[entry-1] == 0) {
     return 0;

@@ -14,6 +14,15 @@
 #include "solution_check.h"
 #include "final_prune.h"
 
+int icheck3(int i[7])
+{
+  if (i[0] == 4 && i[1] == 3 && i[2] == 4 && i[3] == 3
+      && i[4] == 2 && i[5] == 51 && i[6] == 81) {
+    return 1;
+  }
+  return 0;
+}
+
 void third_tree(int inU[7], int inV[7], int inS[7], int inZ[7],
                 solution *VS, solution *US, struct node **head)
 {
@@ -44,12 +53,12 @@ void third_tree(int inU[7], int inV[7], int inS[7], int inZ[7],
           {//open loop 3
             tree3(4, i[4], matV, matU, rge, E, pivots, inZ,inU, inS, inV,
                   u, v, s, t);
-            for (i[5] = getLowerIndex(i[4], inZ, 1);
+            for (i[5] = getLowerIndex(i[4], inZ, 5);
                  (i[5] < late_index[5]) && (pivots[4][1] > -1); i[5]++)
             {//open loop 3
               tree3(5, i[5], matV, matU, rge, E, pivots, inZ,
                     inU, inS, inV, u, v, s, t);
-              for (i[6] = getLowerIndex(i[5], inZ, 2);
+              for (i[6] = getLowerIndex(i[5], inZ, 6);
                    i[6] < late_index[6] && pivots[5][2] > -1; i[6]++)
               {//open loop 3
                 tree3(6, i[6], matV, matU, rge, E, pivots, inZ, inU, inS, inV,
@@ -57,7 +66,10 @@ void third_tree(int inU[7], int inV[7], int inS[7], int inZ[7],
                 if (pivots[6][3] > 0){
                   if(prunecheck(VS, UT, matU, 1)){
                     if (prunecheck(UT, VT, matV, 0)) {
+                      
                       final_prune(head, u, v, s, t, US, VS, UT, VT);
+                      
+    
                     }
                   }
                 }

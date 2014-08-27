@@ -53,28 +53,23 @@ int second_tree(int inU[7], int inS[7], int inZ[7], struct node **head,
           for (i[4] = 0; i[4] < late_index[4]; i[4]++)
           {//open loop 3
             tree2(4, i[4], matrix, inZ, outZ, inU, inS, u, s, v);
-            for (i[5] = getLowerIndex(i[4], inZ, 1);
+            for (i[5] = getLowerIndex(i[4], inZ, 5);
                  i[5] < late_index[5]; i[5]++)
             {//open loop 3
               tree2(5, i[5], matrix, inZ, outZ, inU, inS, u, s, v);
-              for (i[6] = getLowerIndex(i[5], inZ, 2);
+              for (i[6] = getLowerIndex(i[5], inZ, 6);
                    i[6] < late_index[6]; i[6]++)
               {//open loop 3
                 tree2(6, i[6], matrix, inZ, outZ, inU, inS, u, s, v);
                 vc = vCheck(v);
-                if (icheck2(i) == 1)
-                {
-                  printf("Yes\n");
-                }
-                if (vc == 1) {
-                  l2c = levelTWOcheck(matrix);
-                  if (l2c) {
-                    pc = prunecheck(US, VS, matrix, 1);
-                    if (pc) {
-                      branches++;
-                      //third_tree(u, v, s, outZ, VS, US, head);
-                    }
+                l2c = levelTWOcheck(matrix);
+                if (l2c) {
+                  pc = prunecheck(US, VS, matrix, 1);
+                  if (pc) {
+                    branches++;
+                    third_tree(u, v, s, outZ, VS, US, head);
                   }
+                  
                 }
               }//close loop 6
             }//close loop 5

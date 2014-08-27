@@ -69,17 +69,17 @@ void first_tree(int n)
                 {
                   if (brute_force(matrix, flag, len))
                   {
-                    branch[1] = branch[0] % 2;
-                    if (icheck(i))
-                    {
-                      printf("\n %i \n", branch[0]);
-                      second_tree(u, s, Z, &head, US);
-                    }
+                      branch[1] = branch[0] % 10000;
+                      //if (icheck(i)) {
+                      //printf("\n %i \n", branch[0]);
+                    
+                      //}
                     if (branch[1] == n)
                     {
                         //initUS(US);
                         //printf("%i", branch);
                       fill_solutions(flag, US, len);
+                      second_tree(u, s, Z, &head, US);
                       //second_tree(u, s, Z, &head, US);
                       //printf("branch: %i,\t thread: %i \n", branch[0], branch[1]);
                     }
