@@ -25,7 +25,6 @@ struct node
 void push(int u[7], int v[7], int s[7], int t[7],
           unsigned short int matrix[128][128],struct node **head);
 void printResults(struct node **head, int branch);
-void initResults(int branch);
-void endResults(int branch);
+
 
 #endif

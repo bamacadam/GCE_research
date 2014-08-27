@@ -33,7 +33,9 @@ void third_tree(int inU[7], int inV[7], int inS[7], int inZ[7],
   getLateIndices(late_index, inZ, 96);
   int matU[7][4] = {0}, matV[7][4] = {0};
   solution *UT = malloc(sizeof(solution)), *VT = malloc(sizeof(solution));
+  int count = 0;
   init_level(UT);
+  init_level(VT);
   for (i[0] = 0; i[0] < 5; i[0]++)
   {//open loop 0
     tree3(0, i[0], matV, matU, rge, E, pivots, inZ,inU, inS, inV, u, v, s, t);
@@ -63,13 +65,12 @@ void third_tree(int inU[7], int inV[7], int inS[7], int inZ[7],
               {//open loop 3
                 tree3(6, i[6], matV, matU, rge, E, pivots, inZ, inU, inS, inV,
                       u, v, s, t);
-                if (pivots[6][3] > 0){
-                  if(prunecheck(VS, UT, matU, 1)){
+                
+                count++;
+                if (pivots[6][3] > 0) {
+                  if(prunecheck(VS, UT, matU, 1)) {
                     if (prunecheck(UT, VT, matV, 0)) {
-                      
-                      final_prune(head, u, v, s, t, US, VS, UT, VT);
-                      
-    
+                        final_prune(head, u, v, s, t, US, VS, UT, VT);
                     }
                   }
                 }

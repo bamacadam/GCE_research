@@ -72,7 +72,8 @@ void printResults(struct node **head, int branch)
   static char comma[7] = {',', ',', ',', ',', ',', ',', ' '};
     //Open the file
   FILE *results;
-  results = fopen(name, "a+");
+  results = fopen(name, "w+");
+  fprintf(results, "[");
   while (*head != NULL)
   {   //iterate through the linked list
     next = (*head)->next;
@@ -116,32 +117,9 @@ void printResults(struct node **head, int branch)
     *head = next; //set head as the next entry in the linked list
   }
     //close the file
+  fprintf(results, "{}]");
   fclose(results);
 }
 
-/*
- *This function overwrites the previous JSON file and handles formatting.
- */
-void initResults(int branch)
-{
-  FILE *results;
-  char name[30];
-  sprintf(name, "math_results_%i.json", branch);
-  results = fopen(name, "w+");
-  fprintf(results, "[");
-  fclose(results);
-}
-/*
- *This function ends the JSON file so it is in the correct format
- */
-void endResults(int branch)
-{
-  FILE *results;
-  char name[30];
-  sprintf(name, "math_results_%i.json", branch);
-  results = fopen(name, "a+");
-  fprintf(results, "{}]");
-  fclose(results);
-  
-}
+
 

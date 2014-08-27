@@ -69,7 +69,6 @@ int second_tree(int inU[7], int inS[7], int inZ[7], struct node **head,
                     branches++;
                     third_tree(u, v, s, outZ, VS, US, head);
                   }
-                  
                 }
               }//close loop 6
             }//close loop 5

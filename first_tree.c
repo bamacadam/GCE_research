@@ -41,7 +41,6 @@ void first_tree(int n)
   solution *US = malloc(sizeof(solution));  //the solution struct
   struct node *head = NULL;
   init_level(US);
-  initResults(n);
   static int second_index[3] = {0, 4, 12};
   int branch[2] = {0};
   for(i[0] = 0; i[0] < 3; i[0]++)
@@ -69,19 +68,13 @@ void first_tree(int n)
                 {
                   if (brute_force(matrix, flag, len))
                   {
-                      branch[1] = branch[0] % 10000;
-                      //if (icheck(i)) {
-                      //printf("\n %i \n", branch[0]);
-                    
-                      //}
+                    branch[1] = branch[0] % 64;
                     if (branch[1] == n)
                     {
-                        //initUS(US);
-                        //printf("%i", branch);
                       fill_solutions(flag, US, len);
+                        //second_tree(u, s, Z, &head, US);
                       second_tree(u, s, Z, &head, US);
-                      //second_tree(u, s, Z, &head, US);
-                      //printf("branch: %i,\t thread: %i \n", branch[0], branch[1]);
+                      printf("\nbranch: %i,\t thread: %i \n", branch[0], branch[1]);
                     }
                     branch[0]++;
                   }
@@ -94,7 +87,6 @@ void first_tree(int n)
     }//closes loop 1
   }//closes loop 0
   printResults(&head, n);
-  endResults(n);
-  printf("\n %i, %i", branch[0], branch[1]);
+  printf("\n***********\n Thread %i complete \n ***********\n", n);
 }
 
