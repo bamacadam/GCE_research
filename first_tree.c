@@ -72,7 +72,6 @@ void first_tree(int n)
                     if (branch[1] == n)
                     {
                       fill_solutions(flag, US, len);
-                        //second_tree(u, s, Z, &head, US);
                       second_tree(u, s, Z, &head, US);
                       printf("\nbranch: %i,\t thread: %i \n", branch[0], branch[1]);
                     }
